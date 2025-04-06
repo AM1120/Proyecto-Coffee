@@ -6,6 +6,7 @@ export default function CrearProducto(){
         descripcion: '',
         img: '',
         precio: '',
+        categoria: '',
     });
     const [isLoading,setIsLoading] = useState(false);
 
@@ -20,7 +21,7 @@ export default function CrearProducto(){
         e.preventDefault();
         console.log(formData);
         setIsLoading(true);
-        fetch('https://servidor-2-uok1.onrender.com/api/product-create', {
+        fetch('https://servidor-2-2.onrender.com/api/product-create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +39,7 @@ export default function CrearProducto(){
 
     // Restablecer el formulario
     const resetForm = () => {
-        setFormData({ nombre: '', descripcion: '', img: '', precio: ''});
+        setFormData({ nombre: '', descripcion: '', img: '', precio: '', categoria:''});
     };
 
     useEffect(()=>{
@@ -80,6 +81,14 @@ export default function CrearProducto(){
                         value={formData.precio}
                         onChange={handleInputChange}
                         placeholder="Precio del producto"
+                        className="p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200"
+                    />
+                    <input
+                        type="text"
+                        name="Categoria"
+                        value={formData.categoria}
+                        onChange={handleInputChange}
+                        placeholder="Categoria (Bebida/Acompañante)"
                         className="p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200"
                     />
                     <button

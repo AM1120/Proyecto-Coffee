@@ -7,7 +7,7 @@ export function CardProducto({ producto, actualizarLista,obtenerProductos }:{pro
 
     const handleDeleteProducto = (productId:number) => {
         console.log("PRODUCTO ID ", productId);
-        fetch(`https://servidor-2-uok1.onrender.com/api/products/${productId}`, {
+        fetch(`https://servidor-2-2.onrender.com/api/products/${productId}`, {
             method: 'DELETE',
         })
         .then((response) => {
@@ -41,6 +41,10 @@ export function CardProducto({ producto, actualizarLista,obtenerProductos }:{pro
                 {producto.descripcion}
             </p>
 
+            <p style={{ fontSize: '14px', color: '#666', marginBottom: '4px' }}>
+                {producto.categoria}
+            </p>
+
             <div className='flex justify-center'>
                 <img width={100} src={producto.img} alt={producto.nombre} style={{ borderRadius: '4px', objectFit: 'cover' }} />
             </div>
@@ -68,6 +72,7 @@ function ModalEdit({ producto, closeModal, actualizarLista,obtenerProductos }:{p
         descripcion: producto.descripcion,
         img: producto.img,
         precio: producto.precio,
+        categoria: producto.categoria,
     });
 
     // Manejar el cambio en los campos del formulario
@@ -81,7 +86,7 @@ function ModalEdit({ producto, closeModal, actualizarLista,obtenerProductos }:{p
         e.preventDefault();
 
         // Aquí puedes realizar la lógica de actualización del producto.
-        fetch(`https://servidor-2-uok1.onrender.com/api/products/${producto.id}`, {
+        fetch(`https://servidor-2-2.onrender.com/api/products/${producto.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -131,6 +136,14 @@ function ModalEdit({ producto, closeModal, actualizarLista,obtenerProductos }:{p
                         value={formData.precio}
                         onChange={handleInputChange}
                         placeholder="Precio del producto"
+                        className="p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200"
+                    />
+                    <input
+                        type="text"
+                        name="Categoria"
+                        value={formData.categoria}
+                        onChange={handleInputChange}
+                        placeholder="Categoria (Bebida/Acompañante)"
                         className="p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200"
                     />
                     <button
