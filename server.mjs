@@ -9,7 +9,7 @@ const httpServer = createServer(app);
 
 // Configura CORS para permitir solicitudes desde cualquier origen
 app.use(cors({
-    origin: '*', // Permite todos los orígenes
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 
@@ -17,7 +17,7 @@ app.use(express.json());
 
 const io = new SocketIOServer(httpServer, {
     cors: {
-        origin: '*', // Permite todos los orígenes
+        origin: '*',
         methods: ['GET', 'POST', 'PUT', 'DELETE']
     }
 });
@@ -34,6 +34,7 @@ io.on('connection', (socket) => {
     // Aquí puedes manejar eventos específicos del socket
 });
 
+// ✅ Solo una declaración de 'port' aquí
 const port = process.env.PORT || 3000;
 
 httpServer.listen(port, () => {
