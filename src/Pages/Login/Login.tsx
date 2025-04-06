@@ -27,7 +27,7 @@ export default function Login() {
     console.log(formData);
 
     try {
-      const res = await fetch('https://servidor-2-uok1.onrender.com/api/login', {
+      const res = await fetch('https://servidor-2-2.onrender.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Aseguramos que el tipo de contenido sea JSON

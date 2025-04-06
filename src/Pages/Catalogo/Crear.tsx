@@ -39,7 +39,7 @@ export default function CrearProducto(){
 
     // Restablecer el formulario
     const resetForm = () => {
-        setFormData({ nombre: '', descripcion: '', img: '', precio: '', categoria:''});
+        setFormData({ nombre: '', descripcion: '', img: '', precio: '', categoria:'', });
     };
 
     useEffect(()=>{
@@ -85,7 +85,7 @@ export default function CrearProducto(){
                     />
                     <input
                         type="text"
-                        name="Categoria"
+                        name="categoria"
                         value={formData.categoria}
                         onChange={handleInputChange}
                         placeholder="Categoria (Bebida/Acompañante)"
