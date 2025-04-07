@@ -23,12 +23,12 @@ export default function Registro() {
     console.log(formData);
 
     try {
-      const res = await fetch('', {
+      const res = await fetch('https://servidor-2-2.onrender.com/api/crear-cliente', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json', // Aseguramos que el tipo de contenido sea JSON
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), // Convertimos los datos a formato JSON
       });
 
       if (res.ok) {
@@ -36,7 +36,7 @@ export default function Registro() {
         console.log(datos);
         setMsj(datos.message);
       } else {
-        const errorData = await res.json();
+        const errorData = await res.json(); // Intentamos obtener más información del error
         setMsj(`Error: ${errorData.message || "Ocurrió un problema en el servidor."}`);
       }
     } catch (error) {
@@ -108,16 +108,15 @@ export default function Registro() {
             required
           >
             <option value="">Seleccione un tipo de documento</option>
-            <option value="1">DNI</option>
-            <option value="2">Carnet de extranjería</option>
-            <option value="3">Pasaporte</option>
+            <option value="1">Cédula</option>
           </select>
         </div>
 
-        <div className="text-center">
+        <div className="text-center" >
           <button
             type="submit"
-            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            
+            className="bg-yellow-800 text-white p-2 rounded hover:bg-orange-950"
           >
             Registrarse
           </button>

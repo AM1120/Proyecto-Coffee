@@ -6,7 +6,7 @@ export default function CrearProducto(){
         descripcion: '',
         img: '',
         precio: '',
-        categoria: '',
+        stock: '',
     });
     const [isLoading,setIsLoading] = useState(false);
 
@@ -39,7 +39,7 @@ export default function CrearProducto(){
 
     // Restablecer el formulario
     const resetForm = () => {
-        setFormData({ nombre: '', descripcion: '', img: '', precio: '', categoria:'', });
+        setFormData({ nombre: '', descripcion: '', img: '', precio: '', stock: '' });
     };
 
     useEffect(()=>{
@@ -84,11 +84,11 @@ export default function CrearProducto(){
                         className="p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200"
                     />
                     <input
-                        type="text"
-                        name="categoria"
-                        value={formData.categoria}
+                        type="number"
+                        name="stock"
+                        value={formData.stock}
                         onChange={handleInputChange}
-                        placeholder="Categoria (Bebida/Acompañante)"
+                        placeholder="Stock del producto"
                         className="p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200"
                     />
                     <button

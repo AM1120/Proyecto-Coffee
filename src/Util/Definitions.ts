@@ -4,7 +4,7 @@ export type Producto={
     descripcion:string,
     img:string,
     precio:number,
-    categoria:string,
+    stock:number,
 }
 
 export type UserSession={

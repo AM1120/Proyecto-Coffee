@@ -140,7 +140,7 @@ function ModalEdit({ producto, closeModal, actualizarLista,obtenerProductos }:{p
                     />
                     <input
                         type="text"
-                        name="Categoria"
+                        name="categoria"
                         value={formData.categoria}
                         onChange={handleInputChange}
                         placeholder="Categoria (Bebida/Acompañante)"
